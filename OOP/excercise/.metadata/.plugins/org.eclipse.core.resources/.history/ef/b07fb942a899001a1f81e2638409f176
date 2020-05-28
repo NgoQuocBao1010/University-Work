@@ -1,0 +1,92 @@
+package btvn;
+import java.io.*;
+import java.util.*;
+
+public class thucHanhFile {
+	public Scanner sc = new Scanner(System.in);
+	
+	public void saveProcessObject(int numOfProcesses) {
+		try {
+			FileOutputStream file = new FileOutputStream("D:\\InformationTec\\Java\\BTVN\\src\\btvn\\text.txt");
+			ObjectOutputStream obj = new ObjectOutputStream(file);
+			
+			for (int i=0; i<numOfProcesses; i++) {
+				System.out.print("Nhap arrival time va cpu time process thu " + (i+1) + ": ");
+				String name = "p" + (i+1);
+				int arrTime = sc.nextInt();
+				int cpuTime = sc.nextInt();
+				process p = new process(name, arrTime, cpuTime);
+				obj.writeObject(p);
+			}
+			
+			obj.close();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public process[] readProcesses(int numOfProcesses) {
+		process[] result = new process[numOfProcesses];
+		try {
+			FileInputStream file = new FileInputStream("D:\\InformationTec\\Java\\BTVN\\src\\btvn\\text.txt");
+			ObjectInputStream obj = new ObjectInputStream(file);
+			
+			for (int i=0; i<numOfProcesses; i++) {
+				process p = (process) obj.readObject();
+				result[i] = p;
+			}
+			obj.close();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		return result;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		process p1 = new process("p1", 5, 6);
+//		process p2 = new process("p2", 1, 2);
+//		process p3 = new process("p3", 2, 3);
+//		
+//		try {
+//			FileOutputStream file = new FileOutputStream("D:\\InformationTec\\Java\\BTVN\\src\\btvn\\text.txt");
+//			ObjectOutputStream obj = new ObjectOutputStream(file);
+//			
+//			obj.writeObject(p1);
+//			obj.writeObject(p2);
+//			obj.writeObject(p3);
+////			System.out.println("Bao");
+//			
+//			obj.close();
+//		} catch (IOException ex) {
+//			ex.printStackTrace();
+//		}
+////		System.out.println("Bao");
+		
+		try {
+			FileInputStream file = new FileInputStream("D:\\InformationTec\\Java\\BTVN\\src\\btvn\\text.txt");
+			ObjectInputStream obj = new ObjectInputStream(file);
+			
+			process p1 = (process) obj.readObject();
+			process p2 = (process) obj.readObject();
+			process p3 = (process) obj.readObject();
+			
+			System.out.println(p1.toString());
+			System.out.println(p2.toString());
+			System.out.println(p3.toString());
+			
+			obj.close();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+}
