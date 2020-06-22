@@ -2,6 +2,12 @@
     "files.associations": {
         "iostream": "cpp",
         "ostream": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "new": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp",
+        "valarray": "cpp",
+        "unordered_map": "cpp"
     }
 }
