@@ -2,96 +2,71 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
+
+#define MinValue -1000007
 #define N 501
 
-// No of rows and columns 
-int n, m; 
+void mazeSolve() {
+	int rows, cols;
+	cin >> rows >> cols;
 
-// Declaring the matrix of maximum 
-// 100 rows and 100 columns 
-int a[N][N]; 
+	int** matrix;
+	matrix = new int*[N];
 
-// Variable visited is used to keep 
-// track of all the visited positions 
-// Variable dp is used to store 
-// maximum sum till current position 
-vector<vector<int> > dp(N, vector<int>(N)), 
-	visited(N, vector<int>(N)); 
+    for (int i=0; i<N; i++)
+        matrix[i] = new int[N];
 
-// For storing current sum 
-int current_sum = 0; 
+	for (int i=0; i<rows; i++) {
+		for (int j=0; j<cols; j++) {
+			cin >> matrix[i][j];
+		}
+	}
+	
 
-// For continuous update of 
-// maximum sum required 
-int total_sum = 0; 
+	int** mem;
+	mem = new int*[N];
 
-// Function to Input the matrix of size n*m 
-void inputMatrix() 
-{ 
-	cin >> n >> m;
-
-    for (int i=0; i<n; i++) {
-        for (int j=0; j<m; j++) {
-            cin >> a[i][j];
+    for (int i=0; i<N; i++)
+        mem[i] = new int[N];
+    
+    for (int i=0; i<N; i++) {
+        for (int j=0; j<N; j++) {
+            mem[i][j] = MinValue;
         }
     }
-} 
 
-// Function to calculate maximum sum of path 
-int maximum_sum_path(int i, int j) 
-{ 
-	// Checking boundary condition 
-	if (i == n - 1 && j == m - 1) 
-		return a[i][j]; 
+	int tmp;
+	mem[0][0] = matrix[0][0];
+	for (int i=0; i<rows; i++) {
+		for (int j=0; j<cols; j++) {		
+			if (j + 1 < cols) {
+				tmp = mem[i][j] + matrix[i][j + 1];
+				if (tmp > mem[i][j + 1])
+					mem[i][j + 1] = tmp;
+			}
 
-	// Checking whether or not (i, j) is visited 
-	if (visited[i][j]) 
-		return dp[i][j]; 
+			if (i + 1 < rows) {
+				tmp = mem[i][j] + matrix[i + 1][j];
 
-	// Marking (i, j) is visited 
-	visited[i][j] = 1; 
+				if (tmp > mem[i + 1][j])
+					mem[i + 1][j] = tmp;
+			}
 
-	// Updating the maximum sum till 
-	// the current position in the dp 
-	int& total_sum = dp[i][j]; 
+			if (i + 1 < rows && j + 1 < cols) {
+				tmp = mem[i][j] + matrix[i + 1][j + 1];
 
-	// Checking whether the position hasn't 
-	// visited the last row or the last column. 
-	// Making recursive call for all the possible 
-	// moves from the current cell and then adding the 
-	// maximum returned by the calls and updating it. 
-	if (i < n - 1 & j < m - 1) { 
-		int current_sum = max(maximum_sum_path(i, j + 1), 
-							max( 
-								maximum_sum_path(i + 1, j + 1), 
-								maximum_sum_path(i + 1, j))); 
-		total_sum = a[i][j] + current_sum; 
-	} 
+				if (tmp > mem[i + 1][j + 1])
+					mem[i + 1][j + 1] = tmp;
+			}
+		}
+	}
 
-	// Checking whether 
-	// position has reached last row 
-	else if (i == n - 1) 
-		total_sum = a[i][j] 
-					+ maximum_sum_path(i, j + 1); 
+	cout << mem[rows - 1][cols - 1];
+}
 
-	// If the position is in the last column 
-	else
-		total_sum = a[i][j] 
-					+ maximum_sum_path(i + 1, j); 
 
-	// Returning the updated maximum value 
-	return total_sum; 
-} 
-
-// Driver Code 
-int main() 
-{ 
+int main() { 
     freopen("testInput.txt", "r", stdin);
-	inputMatrix(); 
-
-	// Calling the implemented function 
-	int maximum_sum = maximum_sum_path(0, 0); 
-
-	cout << maximum_sum; 
+	mazeSolve();
 	return 0; 
 } 
