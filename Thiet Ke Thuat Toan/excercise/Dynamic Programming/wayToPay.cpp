@@ -5,8 +5,6 @@ using namespace std;
 #define MaxSize 1001
 #define MinValue -1
 
-typedef unordered_map<string, int> hashTable;
-
 // ====================== Merge Sort Integer ======================
 // ======================    Small to Big    ======================
 void merge(int arr[], int low, int mid, int high){
