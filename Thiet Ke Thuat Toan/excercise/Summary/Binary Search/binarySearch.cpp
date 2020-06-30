@@ -42,5 +42,5 @@ long long binarySearchLongLong(long long arr[], long long startIndex, long long 
 
 int main(){
     int arr[10] = {1, 3, 5, 7, 9, 10, 12, 16, 19, 20};
-    cout << binarySearch(arr, 0, 9, 1) << endl;
+    cout << binarySearch(arr, 1, 9, 1) << endl;
 }

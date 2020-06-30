@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <cstring>
 
 #define oo 1000000007
 typedef pair<int, int> KeyValue;
