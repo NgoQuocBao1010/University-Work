@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+D:\IT school works\Works\OOP\excercise\.metadata\.plugins\org.eclipse.jdt.core
-3527334098.index
-1248545562.index
