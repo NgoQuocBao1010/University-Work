@@ -42,7 +42,7 @@ void matrixMulplication() {
 }
 
 int main() {
-    freopen("testInput.txt", "r", stdin);
+    // freopen("testInput.txt", "r", stdin);
     matrixMulplication();
     return 0;
 }
