@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excercise 4 Lab 2</title>
+</head>
+
+<style>
+    h3 {
+        display: inline-block;
+    }
+
+    p,
+    span {
+        font-size: 1rem;
+    }
+
+    #warningA,
+    #warningB,
+    #warningC {
+        font-size: 20px;
+        color: red;
+    }
+</style>
+
+<body>
+    <h1>Giải phương trình bậc 2: Ax<sup>2</sup> + Bx + C = 0</h1>
+
+    <form>
+        <label>
+            <h3>A = </h3>
+        </label>
+        <input type="text" id="inputA"> <span id='warningA'></span>
+        <br>
+        <label>
+            <h3>B = </h3>
+        </label>
+        <input type="text" id="inputB"> <span id='warningB'></span>
+        <br>
+        <label>
+            <h3>C = </h3>
+        </label>
+        <input type="text" id="inputC"> <span id='warningC'></span>
+    </form>
+
+    <button type="button" onclick="getInput()">Giải phương trình!</button>
+    <hr>
+
+    <h1>Giải</h1>
+    <br>
+    <h4>Delta = <span id="delta" style="margin: 0 5px;"></span></h4>
+    <p id="conclusion"></p>
+    <p>x<sub>1</sub> = <span id='x1'></span></p>
+    <p>x<sub>2</sub> = <span id='x2'></span></p>
+</body>
+
+<script>
+    function getInput() {
+        var a = document.getElementById('inputA').value;
+        var b = document.getElementById('inputB').value;
+        var c = document.getElementById('inputC').value;
+
+        if (a === '' || a === 0) {
+            document.getElementById('warningA').innerHTML = 'A phải khác 0';
+            return;
+        }
+        else {
+            document.getElementById('warningA').innerHTML = '';
+        }
+
+
+        var delta = b * b - 4 * a * c;
+        document.getElementById('delta').innerHTML = delta;
+
+        var conclusionParagraph = document.getElementById('conclusion');
+        var x1 = document.getElementById('x1');
+        var x2 = document.getElementById('x2');
+
+        if (delta > 0) {
+            conclusionParagraph.innerHTML = 'Phương trình có 2 nghiệm phân biệt!';
+            x1.innerHTML = (-b + Math.sqrt(delta)) / 2 * a;
+            x2.innerHTML = (-b - Math.sqrt(delta)) / 2 * a;
+        }
+
+        else if (delta == 0) {
+            conclusionParagraph.innerHTML = 'Phương trình có một nghiệm duy nhất!!';
+            x1.innerHTML = (-b) / 2 * a;
+            x2.innerHTML = (-b) / 2 * a;
+        }
+
+        else if (delta < 0) {
+            conclusionParagraph.innerHTML = 'Phương trình vô nghiệm!';
+            x1.innerHTML = x2.innerHTML = '';
+        }
+
+        else {
+            conclusionParagraph.innerHTML = '';
+            x1.innerHTML = x2.innerHTML = '';
+        }
+
+    };
+</script>
+
+</html>
