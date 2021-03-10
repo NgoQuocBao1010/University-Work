@@ -56,7 +56,8 @@ button,
 }
 
 #city,
-#address {
+#address,
+#birthday {
   width: 40%;
 }
 

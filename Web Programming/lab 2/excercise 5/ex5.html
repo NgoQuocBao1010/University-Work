@@ -33,6 +33,7 @@
                     <label for="male" style="margin-right: 30px;">Male</label>
                     <input type="radio" id="female" name="gender" value="female">
                     <label for="female">Female</label>
+                    <span id='genderSpan' style='color: red; font-size: 15px;'></span>
                 </div>
             </div>
 
@@ -43,6 +44,7 @@
                 </div>
                 <div class="input">
                     <input id='email' class='textInput' type="text" name="nameField">
+                    <span id='emailSpan' style='color: red; font-size: 15px;'></span>
                 </div>
             </div>
 
@@ -52,17 +54,19 @@
                     <h4>Enter birthday (MM/DD/YYYY)<sup>*</sup>:</h4>
                 </div>
                 <div class="input">
-                    <input id='birthday' class='textInput' type="text" name="nameField">
+                    <input id='birthday' class='textInput' type="text" name="nameField" maxlength="10">
+                    <span id='birthdaySpan' style='color: red; font-size: 15px;'></span>
                 </div>
             </div>
 
             <!-- Street address -->
             <div class="row">
                 <div class="label">
-                    <h4>Enter street address<sup>*</sup>:</h4>
+                    <h4>Enter street address (line 1)<sup>*</sup>:</h4>
                 </div>
                 <div class="input">
                     <input id='address' class='textInput' type="text" name="nameField">
+                    <span id='addressSpan' style='color: red; font-size: 15px;'></span>
                 </div>
             </div>
 
@@ -73,6 +77,7 @@
                 </div>
                 <div class="input">
                     <input id='city' class='textInput' type="text" name="nameField">
+                    <span id='citySpan' style='color: red; font-size: 15px;'></span>
                 </div>
             </div>
 
@@ -82,13 +87,15 @@
                     <h4>Select region<sup>*</sup>:</h4>
                 </div>
                 <div class="input">
-                    <select>
-                        <option value="volvo">Asia</option>
-                        <option value="saab">Europe</option>
-                        <option value="opel">North America</option>
-                        <option value="audi">South America</option>
-                        <option value="audi">North America</option>
+                    <select id='region'>
+                        <option value=""></option>
+                        <option value="asia">Asia</option>
+                        <option value="eu">Europe</option>
+                        <option value="na">North America</option>
+                        <option value="sa">South America</option>
+                        <option value="afr">Africa</option>
                     </select>
+                    <span id='regionSpan' style='color: red; font-size: 15px;'></span>
                 </div>
             </div>
 
@@ -101,9 +108,11 @@
                     <input type="text" 
                         id='zipcode'
                         maxlength="5" 
+                        class="textInput"
                         onkeypress='return event.charCode >= 48 && event.charCode <= 57'    
                         required 
                     />
+                    <span id='zipcodeSpan' style='color: red; font-size: 15px;'></span>
                 </div>
             </div>
         </form>
@@ -114,7 +123,7 @@
                 <button onclick="submit()">Finished</button>
             </div>
             <div class="input">
-                <button onclick="submit()">Clear</button>
+                <button id='clearBtn' onclick="clear()">Clear</button>
             </div>
         </div>
 
@@ -122,20 +131,109 @@
 </body>
 
 <script>
-    function submit() {
-        var name = document.getElementById('name');
+    var errorSpan = [];
 
-        if (name.value === "") {
-            console.log(name.id + 'Span');
-            var error = document.getElementById(name.id + 'Span');
-            error.innerHTML = 'Đây là trường bắt buộc!';
+    // Name Input
+    var nameInput = document.getElementById('name');
+    var nameError = document.getElementById(nameInput.id + 'Span');
+    errorSpan.push(nameError);
+
+    // address Input
+    var addressInput = document.getElementById('address');
+    var addressError = document.getElementById(addressInput.id + 'Span');
+    errorSpan.push(addressError);
+
+    // City Input
+    var cityInput = document.getElementById('city');
+    var cityError = document.getElementById(cityInput.id + 'Span');
+    errorSpan.push(cityError);
+
+    // zipcode Input
+    var zipcodeInput = document.getElementById('zipcode');
+    var zipcodeError = document.getElementById(zipcodeInput.id + 'Span');
+    errorSpan.push(zipcodeError);
+
+    // Gender Input
+    function getGender() {
+        var genders = document.getElementsByName('gender');
+        var gender = '';
+        for (var i = 0, length = genders.length; i < length; i++) {
+            if (genders[i].checked) {
+                gender = genders[i].value;
+                break;
+            }
         }
 
+        return gender;
+    }
+    var genderError = document.getElementById('genderSpan');
+    errorSpan.push(genderError);
+
+    // Email input
+    var emailInput = document.getElementById('email');
+    var emailError = document.getElementById(emailInput.id + 'Span');
+    var emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    errorSpan.push(emailError);
+
+    // Birthday Input
+    var birthdayInput = document.getElementById('birthday');
+    var birthdayError = document.getElementById(birthdayInput.id + 'Span');
+    var birthdayFormat = new RegExp("^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$");
+    errorSpan.push(birthdayError);
+
+    // Region Input
+    var regionInput = document.getElementById('region');
+    var regionError = document.getElementById(regionInput.id + 'Span');
+    errorSpan.push(regionError);
+
+
+    function submit() {
+        nameError.innerHTML = (nameInput.value === "") ? 'Đây là trường bắt buộc!' : '';
+        addressError.innerHTML = (addressInput.value === "") ? 'Đây là trường bắt buộc!' : '';
+        cityError.innerHTML = (cityInput.value === "") ? 'Đây là trường bắt buộc!' : '';
+        zipcodeError.innerHTML = (zipcodeInput.value === "") ? 'Đây là trường bắt buộc!' : '';
+
+        var gender = getGender();
+        genderError.innerHTML = (gender === "") ? 'Đây là trường bắt buộc!' : '';
+
+
+        if (emailInput.value !== '') {
+            emailError.innerHTML = (emailFormat.test(emailInput.value)) ? '' : 'Sai định dạng email!';
+        }
         else {
-            var error = document.getElementById(name.id + 'Span');
+            emailError.innerHTML = 'Đây là trường bắt buộc!'
+        }
+
+        if (birthdayInput.value !== '') {
+            birthdayError.innerHTML = (birthdayFormat.test(birthdayInput.value)) ? '' : 'Sai định dạng ngày!';
+        }
+        else {
+            birthdayError.innerHTML = 'Đây là trường bắt buộc!'
+        }
+
+        var selectedRegion = regionInput.options[regionInput.selectedIndex].text;
+        regionError.innerHTML = (selectedRegion === "") ? 'Đây là trường bắt buộc!' : '';
+    }
+
+    function clear() {
+        for (error of errorSpan) {
             error.innerHTML = '';
         }
+
+        var textInputs = document.getElementsByClassName('textInput');
+        for (input of textInputs) {
+            input.value = '';
+        }
+
+        var genders = document.getElementsByName('gender'); 
+        for (var i = 0, length = genders.length; i < length; i++) {
+            genders[i].checked = false;
+        }
+
+        regionInput.selectedIndex = 0;
     }
+
+    document.getElementById("clearBtn").addEventListener("click", clear);
 </script>
 
 </html>
