@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+button,
+#submitBtn {
+  width: 80px;
+  height: 30px;
+}
+
+.wrapper {
+  width: 50%;
+  height: 80%;
+  margin: 10px auto;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+}
+
+.label,
+.input {
+  width: 50%;
+  height: 50px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.label {
+  /* background-color: lightpink; */
+  justify-content: flex-end;
+}
+
+.input {
+  padding-left: 10px;
+}
+
+.input .textInput {
+  width: 60%;
+  height: 60%;
+  font-size: 20px;
+}
+
+.input select {
+  width: 35%;
+  height: 60%;
+  font-size: 20px;
+}
+
+#city,
+#address {
+  width: 40%;
+}
+
+#zipcode {
+  width: 20%;
+  font-size: 20px;
+  text-align: center;
+}

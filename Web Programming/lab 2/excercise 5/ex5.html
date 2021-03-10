@@ -5,62 +5,137 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Excercise 5 Lab 2</title>
 </head>
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    label {
-        display: block;
-    }
-
-
-
-    .formContain {
-        width: 50%;
-        height: 200px;
-        background-color: lightblue;
-        margin: 10px auto;
-    }
-
-    .inputField {
-        width: 100%;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .inputField label>span {
-        float: left;
-        background-color: red;
-    }
-</style>
-
 <body>
     <h1>Personal Information</h1>
-    <div class="formContain">
-        <form action="" class='inputField'>
-            <label for="nameField">
-                <span class='labelSpan'>Enter Name<sup>*</sup>: </span>
-                <input type="text" name="nameField">
-            </label>
-            <label for="nameField">
-                <span class='labelSpan'>Enter email address<sup>*</sup>: </span>
-                <input type="text" name="nameField">
-            </label>
-            <label for="nameField">
-                <span class='labelSpan'>Enter birthday (MM/DD/YYY)<sup>*</sup>: </span>
-                <input type="text" name="nameField">
-            </label>
+    <div class="wrapper">
+        <form action="">
+            <!-- Name -->
+            <div class="row">
+                <div class="label">
+                    <h4>Enter Name<sup>*</sup>:</h4>
+                </div>
+                <div class="input">
+                    <input id='name' class='textInput' type="text" name="name"><span id='nameSpan' style='color: red; font-size: 15px;'></span>
+                </div>
+                
+            </div>
+
+            <!-- Sex -->
+            <div class="row">
+                <div class="label">
+                    <h4>Sex<sup>*</sup>:</h4>
+                </div>
+                <div class="input">
+                    <input type="radio" id="male" name="gender" value="male" style="font-size: 20px;">
+                    <label for="male" style="margin-right: 30px;">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+
+            <!-- Email address -->
+            <div class="row">
+                <div class="label">
+                    <h4>Enter email address<sup>*</sup>:</h4>
+                </div>
+                <div class="input">
+                    <input id='email' class='textInput' type="text" name="nameField">
+                </div>
+            </div>
+
+            <!-- Birthday -->
+            <div class="row">
+                <div class="label">
+                    <h4>Enter birthday (MM/DD/YYYY)<sup>*</sup>:</h4>
+                </div>
+                <div class="input">
+                    <input id='birthday' class='textInput' type="text" name="nameField">
+                </div>
+            </div>
+
+            <!-- Street address -->
+            <div class="row">
+                <div class="label">
+                    <h4>Enter street address<sup>*</sup>:</h4>
+                </div>
+                <div class="input">
+                    <input id='address' class='textInput' type="text" name="nameField">
+                </div>
+            </div>
+
+            <!-- City -->
+            <div class="row">
+                <div class="label">
+                    <h4>Enter city<sup>*</sup>:</h4>
+                </div>
+                <div class="input">
+                    <input id='city' class='textInput' type="text" name="nameField">
+                </div>
+            </div>
+
+            <!-- Region -->
+            <div class="row">
+                <div class="label">
+                    <h4>Select region<sup>*</sup>:</h4>
+                </div>
+                <div class="input">
+                    <select>
+                        <option value="volvo">Asia</option>
+                        <option value="saab">Europe</option>
+                        <option value="opel">North America</option>
+                        <option value="audi">South America</option>
+                        <option value="audi">North America</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Zip code -->
+            <div class="row">
+                <div class="label">
+                    <h4>Enter 5 digit ZIP code<sup>*</sup>:</h4>
+                </div>
+                <div class="input">
+                    <input type="text" 
+                        id='zipcode'
+                        maxlength="5" 
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'    
+                        required 
+                    />
+                </div>
+            </div>
         </form>
+
+        <!-- Buttons -->
+        <div class="row">
+            <div class="label">
+                <button onclick="submit()">Finished</button>
+            </div>
+            <div class="input">
+                <button onclick="submit()">Clear</button>
+            </div>
+        </div>
+
     </div>
 </body>
+
+<script>
+    function submit() {
+        var name = document.getElementById('name');
+
+        if (name.value === "") {
+            console.log(name.id + 'Span');
+            var error = document.getElementById(name.id + 'Span');
+            error.innerHTML = 'Đây là trường bắt buộc!';
+        }
+
+        else {
+            var error = document.getElementById(name.id + 'Span');
+            error.innerHTML = '';
+        }
+    }
+</script>
 
 </html>
