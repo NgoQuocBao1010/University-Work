@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: gray;
+}
+
+.setting {
+    width: 50%;
+    height: 20%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.setting h2,
+.setting select {
+    margin: 0 8px;
+}
+
+.setting select {
+    width: 20%;
+    font-size: 20px;
+}
+
+.container {
+    width: 600px;
+    height: 400px;
+    margin: 80px auto;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border: 10px inset;
+    background: black;
+}
+
+.input {
+    height: 80px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    border: 2px solid gray;
+}
+
+.input input {
+    width: 90%;
+    height: 90%;
+    margin: 0 2px;
+    font-size: 30px;
+    font-family: 'Courier New';
+    border: 2px solid gray;
+    color: white;
+    background: blue;
+}
+
+.buttons {
+    flex-grow: 1;
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid gray;
+}
+
+.row {
+    width: 100%;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.button {
+    width: 25%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button button {
+    width: 90%;
+    height: 90%;
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+    color: black;
+    background-color: gray;
+}
+
+.button button:focus {
+    outline: none;
+}
+
+.button button:active {
+    transform: translateY(4px);
+}
