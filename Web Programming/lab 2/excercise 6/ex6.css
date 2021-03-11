@@ -1,6 +1,11 @@
 body {
   color: #454545;
   font-family: Georgia;
+  margin-left: 20px;
+}
+
+footer {
+  margin: 0;
 }
 
 .topHeader {
