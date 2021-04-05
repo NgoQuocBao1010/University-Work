@@ -1,0 +1,52 @@
+1. Lệnh tạo người dùng:
+    adduser [ten tai khoan]
+    passwd [ten tk]
+
+2. etc/passwd: Chứa danh sách các người dùng trong hệ thống
+3. etc/group: Chứa danh sách các nhóm người dùng có trong hệ thống
+4. etc/shadow: Chứa danh sách các mật khẩu đã được mã hóa của các tài khoản người dùng, giải thuật băm có thể sử dụng là SHA12
+5. Lệnh đặt ngày hết hạn cho tài khoản:
+    usermod -e mm/dd/yyyy
+6. Xem thông tin tài khoản:
+    chage -l [tên TK]
+7. Lệnh tạo nhóm mới:
+    groupadd [tên nhóm]
+8. Lệnh thêm người dùng vào nhóm:
+    usermod -a -G [tên nhóm] [tên TK]
+9. Kiểm tra xem người dùng thuộc nhóm nào:
+    groups [tên TK]
+10. Lệnh khóa tài khoản (vô hiệu khóa mật khẩu):
+    usermod -L [tên TK]
+    * Nếu đang sử dụng tài khoản quản trị thì vẫn có thể su qua được tài khoản đã bị khóa.
+    * Chỉ sử dụng để khóa khi tài khoản đăng nhập bằng mật khẩu
+11. Lệnh mở khóa tài khoản:
+    usermod -U [tên Tk]
+12. etc/sudoers: Tập tin cho phép phân quyền cho các tài khoản trong hệ thống
+    - Cấp quyền sudo:
+        + Cho người dùng: [tên tk] ALL=(ALL) ALL
+        + Cho nhóm: %[tên nhóm] ALL=(ALL) ALL
+    
+    - Kiểm tra quyền sudo: Thêm từ khóa "sudo" trước khi gõ lệnh với tài khoản được cấp quyền. (Lần đầu sẽ có những cảnh báo từ hệ thống)
+13. Lệnh xóa tài khoản ra khỏi 1 nhóm:
+    gpasswd -d [tên tk] [tên nhóm]
+14. Lệnh hiện thông tin ổ cứng:
+    fdisk -l
+    * Lưu trong thư mục /dev
+15. Lệnh phân vùng ổ cứng:
+    fdisk dev/[tên ổ cứng]
+16. Lệnh format phân vùng:
+    mkfs.ext4 /dev/[tên phân vùng]
+17. Lệnh mount (gắn kết) hai thư mục:
+    mount /dev/[tên phân vùng]/ data
+    * Mỗi ghi chỉnh sửa dữ liệu ở data cũng sẽ là chỉnh sửa ở phân vùng /dev/[tên phân vùng]
+18. Lệnh hiện thông tin (mount ...) của các phân vùng:
+    df -h
+19. Lệnh chuyển nhóm sở hũu thư mục:
+    chgrp [tên nhóm] [tên thư mục]
+    * Sử dụng ls -l để xem chủ sở hữu
+20. Lệnh chỉnh sửa quyền trên thư mục, tập tin:
+    chmod [quyền của chủ sở hữu][quyền của nhóm sở hữu][quyền của người khác] [tên nhóm]
+    * 7 là toàn quyền
+    * 5 là quyền read và excecute
+    * 0 là không có quyền
+
