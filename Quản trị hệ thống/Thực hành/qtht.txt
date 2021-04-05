@@ -49,4 +49,34 @@
     * 7 là toàn quyền
     * 5 là quyền read và excecute
     * 0 là không có quyền
+21. Lệnh hiển thị các tiến trình:
+    ps
 
+    * Chỉ hiển thị id tiến trình, % bộ nhớ, % cpu
+    ps -eo pid,%mem,%cpu --sort -rss (sắp xếp theo phần trăm bộ nhớ)
+22. Lệnh chuyển môi trường soạn thảo thành nano:
+    export EDITOR=nano
+23. Lệnh để làm công việc định kỳ:
+    crontab -e
+    Sau đó tạo công việc
+    [phút] [giờ] [ngày] [tháng] [thứ] ([tên công việc])
+
+    Ví dụ:
+    * * * * * (ls -l): chạy lệnh 'ls -l' mỗi phút 1 lần
+
+    0 23 10,20,30 * * (ps): chạy lệnh 'ps' vào lúc 23 giờ 0 phút mỗi ngày 10, 20, 30 hàng tháng
+24. Lệnh tìm pid của tiến trình:
+    pgrep [tên tiến trình]
+25. Lệnh thao tác trên tiến trình:
+    kill -s [thao tác] [pid]
+    * Thao tác:
+        - STOP: dừng
+        - CONT: tiếp tục
+        - KILL: hủy tiến trình
+25. /var/log/wtmp: Chứa các lần đăng nhập của người dùng (ở dạng nhị phân)
+26. Lệnh liệt kê tất cả các lần đăng nhập vào hệ thống:
+    last
+    last | head -n 1 (lấy lần đăng nhập cuối cùng)
+29. /var/log/secure: Chứa các hoạt động trên máy
+28. Lệnh coi tất cả các hoạt động trên máy:
+    less /var/log/secure
