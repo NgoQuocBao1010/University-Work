@@ -24,12 +24,17 @@
         if (empty($_POST['maBaiViet'])) {
             $maBaiVietErr = "Đây là trường bắt buộc (không nên thay đổi giá trị mặc định)!";
             $error = true;
+            $maBaiViet =  generateID($conn);
         }
         elseif (!numberOnlyValidation($_POST['maBaiViet'])) {
             $maBaiVietErr = "Mã chỉ có nhận đầu vào là số!";
             $error = true;
+            $maBaiViet = $_POST['maBaiViet'];
+        }
+        else {
+            $maBaiViet = $_POST['maBaiViet'];
         }      
-        $maBaiViet = $_POST['maBaiViet'];
+        
 
 
 
@@ -60,8 +65,12 @@
         elseif (!dateValidation($_POST['ngayViet'])) {
             $ngayVietErr = "Ngày nên được nhập với dạng yyyy-mm-dd";
             $error = true;
+            $ngayViet = $_POST['ngayViet'];
         }
-        $ngayViet = $_POST['ngayViet'];
+        else {
+            $ngayViet = $_POST['ngayViet'];
+        }
+        
 
 
 
@@ -96,18 +105,35 @@
             echo "Loi dau vao";
         }
         else {
-            echo "KO co loi";
+            $insertInto = "INSERT INTO Reviews (maBaiViet, tieuDe, tenBaiHat, maTheLoai, tomTat, baiViet,       maTacGia, ngayViet)
+                            VALUES ('$maBaiViet', '$tieuDe', '$tenBaiHat', '$maTheLoai', '$tomTat', '$tomTat', '$maTacGia', '$ngayViet')";
+            if (mysqli_query($conn, $insertInto)) {
+                $maBaiViet = $tieuDe = $maTacGia = $ngayViet = $tenBaiHat = $maTheLoai = $tomTat = "";
+                echo "New record created successfully";
+                $maBaiViet = generateID($conn);
+                $ngayViet = date("Y-m-d");
+                echo $maBaiViet . $ngayViet;
+            } 
+            else 
+            {
+                echo "Error: " . $insertInto . "<br>" . mysqli_error($conn);
+            }
         }
     }
 
     else {
         // Generate new Id
-        $getLastReviewID = "SELECT MAX(maBaiViet) as maGanNhat FROM Reviews";
-        $result = mysqli_query($conn, $getLastReviewID);
-        $lastID = mysqli_fetch_array($result, MYSQLI_ASSOC)['maGanNhat'];
-        $maBaiViet = $lastID + 1;
-
+        $maBaiViet = generateID($conn);
         $ngayViet = date("Y-m-d");
+    }
+
+    function generateID($connection) {
+        $getLastReviewID = "SELECT MAX(maBaiViet) as maGanNhat FROM Reviews";
+        $result = mysqli_query($connection, $getLastReviewID);
+        $lastID = mysqli_fetch_array($result, MYSQLI_ASSOC)['maGanNhat'];
+        $newID = $lastID + 1;
+
+        return $newID;
     }
 
     function numberOnlyValidation($str) {
@@ -206,6 +232,7 @@
             <?php echo ($i + 1) . ". " . $reviews[$i]['tenBaiHat'] . ", ";  ?>
             <?php echo $reviews[$i]['tenTacGia']  . ", ";  ?>
             <?php echo $reviews[$i]['ngayViet']  . ".";  ?>
+            <br>
         <?php endfor; ?>
         </div>
     </div>
