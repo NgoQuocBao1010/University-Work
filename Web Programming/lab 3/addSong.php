@@ -6,15 +6,6 @@
         echo mysqli_connect_error();
     }
 
-    // Get reviews from database
-    $getReviews = "SELECT maBaiViet, tieuDe, tenBaiHat, tomTat, ngayViet, tenTacGia, tenTheLoai
-            FROM Reviews 
-            LEFT JOIN Reviewers on Reviews.maTacGia = Reviewers.maTacGia
-            LEFT JOIN Genres on Reviews.maTheLoai = Genres.maTheLoai";
-    
-    $result = mysqli_query($conn, $getReviews);
-    $reviews = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
     // Get post data
     $error = false;
     $maBaiViet = $tieuDe = $maTacGia = $ngayViet = $tenBaiHat = $maTheLoai = $tomTat = "";
@@ -35,8 +26,6 @@
             $maBaiViet = $_POST['maBaiViet'];
         }      
         
-
-
 
         if (empty($_POST['tieuDe'])) {
             $tieuDeErr = "Đây là trường bắt buộc!";
@@ -72,8 +61,6 @@
         }
         
 
-
-
         if (empty($_POST['tenBaiHat'])) {
             if (!empty($_POST['tieuDe'])) {
                 $tenBaiHat = $tieuDe;
@@ -102,17 +89,19 @@
         $tomTat = $_POST['tomTat'];
 
         if ($error) {
-            echo "Loi dau vao";
         }
         else {
             $insertInto = "INSERT INTO Reviews (maBaiViet, tieuDe, tenBaiHat, maTheLoai, tomTat, baiViet,       maTacGia, ngayViet)
                             VALUES ('$maBaiViet', '$tieuDe', '$tenBaiHat', '$maTheLoai', '$tomTat', '$tomTat', '$maTacGia', '$ngayViet')";
             if (mysqli_query($conn, $insertInto)) {
-                $maBaiViet = $tieuDe = $maTacGia = $ngayViet = $tenBaiHat = $maTheLoai = $tomTat = "";
-                echo "New record created successfully";
-                $maBaiViet = generateID($conn);
-                $ngayViet = date("Y-m-d");
-                echo $maBaiViet . $ngayViet;
+                // $maBaiViet = $tieuDe = $maTacGia = $ngayViet = $tenBaiHat = $maTheLoai = $tomTat = "";
+                // echo "New record created successfully";
+
+                // $_POST = array();
+                // $maBaiViet = generateID($conn);
+                // $ngayViet = date("Y-m-d");
+                // echo $maBaiViet . $ngayViet;
+                header('Location: deleteSong.php');
             } 
             else 
             {
@@ -123,9 +112,19 @@
 
     else {
         // Generate new Id
+        $maBaiViet = $tieuDe = $maTacGia = $ngayViet = $tenBaiHat = $maTheLoai = $tomTat = "";
         $maBaiViet = generateID($conn);
         $ngayViet = date("Y-m-d");
     }
+
+    // Get reviews from database
+    $getReviews = "SELECT maBaiViet, tieuDe, tenBaiHat, tomTat, ngayViet, tenTacGia, tenTheLoai
+            FROM Reviews 
+            LEFT JOIN Reviewers on Reviews.maTacGia = Reviewers.maTacGia
+            LEFT JOIN Genres on Reviews.maTheLoai = Genres.maTheLoai";
+    
+    $result = mysqli_query($conn, $getReviews);
+    $reviews = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     function generateID($connection) {
         $getLastReviewID = "SELECT MAX(maBaiViet) as maGanNhat FROM Reviews";
@@ -229,10 +228,11 @@
 
         <div class="musicList">
         <?php for ($i=0; $i<count($reviews); $i+=1): ?>
-            <?php echo ($i + 1) . ". " . $reviews[$i]['tenBaiHat'] . ", ";  ?>
-            <?php echo $reviews[$i]['tenTacGia']  . ", ";  ?>
-            <?php echo $reviews[$i]['ngayViet']  . ".";  ?>
-            <br>
+            <p>
+                <b><?php echo ($i + 1) . ". " . $reviews[$i]['tenBaiHat'] . ", ";  ?></b>
+                <?php echo $reviews[$i]['tenTacGia']  . ", ";  ?>
+                <?php echo $reviews[$i]['ngayViet']  . ".";  ?>
+            </p>
         <?php endfor; ?>
         </div>
     </div>

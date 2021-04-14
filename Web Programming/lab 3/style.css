@@ -63,3 +63,47 @@ body {
     font-size: 12px;
     color: red;
 }
+
+.musicList p {
+    font-size: 18px;
+}
+
+.filter {
+    margin: 5px 0;
+}
+
+.filter input[type=text] {
+    font-size: 18px;
+    width: 30%;
+    height: 30px;
+    line-height:140%;
+}
+
+.filter input[type=submit] {
+    font-size: 15px;
+    width: 100px;
+    height: 36px;
+}
+
+
+.reviewPost {
+    margin: 40px 0;
+}
+
+.details {
+    width: 80%;
+    display: flex;
+}
+
+.details p {
+    margin: 0;
+    font-size: 17px;
+    padding: 1px 8px;
+}
+.name {
+    width: 10%;
+    text-align: right;
+}
+.value {
+    width: 50%;
+}
