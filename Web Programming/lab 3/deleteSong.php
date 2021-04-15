@@ -9,7 +9,15 @@
     $deleteID = '____';
     if (isset($_GET['delete'])) {
         $deleteID =  $_GET['delete'];
-        echo 'Xoa bai viet co ma la ' . $deleteID;
+        $deleteQuery = "DELETE FROM Reviews WHERE maBaiViet=$deleteID";
+        echo $deleteQuery;
+
+        if (mysqli_query($conn, $deleteQuery)) {
+            header('Location: deleteSong.php');
+        }
+        else  {
+            echo "Error: " . mysqli_error($conn);
+        }
     }
 
     $filterTexts = '';
@@ -59,8 +67,7 @@
         <h2>Số bài viết: <?php echo count($reviews); ?></h2>
 
         <?php foreach ($reviews as $review): ?>
-        
-            <form action="" method="GET" class="reviewPost">
+            <form action="" method="GET" class="reviewPost" onsubmit="return confirmDelete('<?php echo $review['tieuDe'];?>')">
                 <div class="details">
                     <p class="name">Mã bài viết</p> <p class="value"><?php echo $review['maBaiViet']; ?></p>
                 </div>
@@ -83,7 +90,7 @@
                     <p class="name">Tóm tắt</p> <p class="value"><?php echo $review['tomTat']; ?></p>
                 </div>
 
-                <input type="submit" onClick="confirmDelete('<?php echo $review['tieuDe'];?>')" name="delete" value="Xóa bài viết">
+                <input type="submit" name="delete" value="Xóa bài viết">
                 <input type="hidden" name="delete" value="<?php echo $review['maBaiViet'] ?>">
                 <hr>
             </form>
@@ -92,9 +99,8 @@
 </body>
 <script>
     function confirmDelete(name) {
-        if (confirm("Delete " + name + "?")) {
-            window.location.href += name;
-            console.log(window.location.href);
+        console.log('WTf');
+        if (confirm("Delete reviews '" + name + "'?")) {
             return true;
         }
         else {

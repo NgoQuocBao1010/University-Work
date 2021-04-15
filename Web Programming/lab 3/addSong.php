@@ -94,13 +94,6 @@
             $insertInto = "INSERT INTO Reviews (maBaiViet, tieuDe, tenBaiHat, maTheLoai, tomTat, baiViet,       maTacGia, ngayViet)
                             VALUES ('$maBaiViet', '$tieuDe', '$tenBaiHat', '$maTheLoai', '$tomTat', '$tomTat', '$maTacGia', '$ngayViet')";
             if (mysqli_query($conn, $insertInto)) {
-                // $maBaiViet = $tieuDe = $maTacGia = $ngayViet = $tenBaiHat = $maTheLoai = $tomTat = "";
-                // echo "New record created successfully";
-
-                // $_POST = array();
-                // $maBaiViet = generateID($conn);
-                // $ngayViet = date("Y-m-d");
-                // echo $maBaiViet . $ngayViet;
                 header('Location: deleteSong.php');
             } 
             else 
@@ -125,6 +118,16 @@
     
     $result = mysqli_query($conn, $getReviews);
     $reviews = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    // Get reviewers from database
+    $getReviewers = "SELECT * from Reviewers";
+    $result = mysqli_query($conn, $getReviewers);
+    $reviewers = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    // Get genres from database
+    $getGenres = "SELECT * from Genres";
+    $result = mysqli_query($conn, $getGenres);
+    $genres = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     function generateID($connection) {
         $getLastReviewID = "SELECT MAX(maBaiViet) as maGanNhat FROM Reviews";
@@ -179,16 +182,20 @@
                     </div>
                 </div>
                 <div class="field">
-                    <div class="label">Mã Tác giả</div>
+                    <div class="label">Tác giả</div>
                     <div class="input">
-                        <input type="text" name="maTacGia" value="<?php echo $maTacGia; ?>" style="width: 30%;">
+                        <select style="width: 40%; height: 30px;" name="maTacGia" id="">
+                            <?php foreach ($reviewers as $reviewer): ?>
+                                <option value='<?php echo $reviewer['maTacGia'] ?>'><?php echo $reviewer['tenTacGia']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                         <p class="error"><?php echo $maTacGiaErr?></p>
                     </div>
                 </div>
                 <div class="field">
                     <div class="label">Ngày Viết</div>
                     <div class="input">
-                        <input type="text" name="ngayViet" value="<?php echo $ngayViet; ?>">
+                        <input type="date" name="ngayViet" value="<?php echo $ngayViet; ?>" id="ngayViet">
                         <p class="error"><?php echo $ngayVietErr?></p>
                     </div>
                 </div>
@@ -200,9 +207,13 @@
                     </div>
                 </div>
                 <div class="field">
-                    <div class="label">Mã Thể Loại</div>
+                    <div class="label">Thể Loại</div>
                     <div class="input">
-                        <input type="text" name="maTheLoai" value="<?php echo $maTheLoai ?>" style="width: 30%;">
+                        <select style="width: 40%; height: 30px;" name="maTheLoai">
+                            <?php foreach ($genres as $genre): ?>
+                                <option value='<?php echo $genre['maTheLoai'] ?>'><?php echo $genre['tenTheLoai']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                         <p class="error"><?php echo $maTheLoaiErr?></p>
                     </div>
                 </div>
