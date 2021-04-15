@@ -7,13 +7,14 @@
     }
 
     $deleteID = '____';
+    $deleteMsg = '';    
     if (isset($_GET['delete'])) {
         $deleteID =  $_GET['delete'];
         $deleteQuery = "DELETE FROM Reviews WHERE maBaiViet=$deleteID";
-        echo $deleteQuery;
+        $deleteMsg = "Bài Viết Có Mã là $deleteID vừa bị xóa"; 
 
         if (mysqli_query($conn, $deleteQuery)) {
-            header('Location: deleteSong.php');
+            // header('Location: deleteSong.php');
         }
         else  {
             echo "Error: " . mysqli_error($conn);
@@ -54,6 +55,7 @@
 </head>
 <body>
     <a href="addSong.php">Add Song</a>
+    <a href="editSong.php">Edit Song</a>
     <div class="container">
         <h1>Xoa Bai Viet</h1>
         <hr>
@@ -65,6 +67,7 @@
 
 
         <h2>Số bài viết: <?php echo count($reviews); ?></h2>
+        <h3><?php echo $deleteMsg; ?></h3>
 
         <?php foreach ($reviews as $review): ?>
             <form action="" method="GET" class="reviewPost" onsubmit="return confirmDelete('<?php echo $review['tieuDe'];?>')">
@@ -89,9 +92,11 @@
                 <div class="details">
                     <p class="name">Tóm tắt</p> <p class="value"><?php echo $review['tomTat']; ?></p>
                 </div>
-
-                <input type="submit" name="delete" value="Xóa bài viết">
-                <input type="hidden" name="delete" value="<?php echo $review['maBaiViet'] ?>">
+                <div class="details">
+                    <div class="name"></div>
+                    <input class="value" type="submit" name="delete" value="Xóa bài viết" style="width: 15%; margin-left: 20px; font-size: 15px;">
+                    <input type="hidden" name="delete" value="<?php echo $review['maBaiViet'] ?>">
+                </div>
                 <hr>
             </form>
         <?php endforeach; ?>

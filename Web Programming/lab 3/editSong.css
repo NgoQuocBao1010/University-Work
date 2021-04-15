@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    margin: 20px 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 5px;
+}
+
+.field {
+    width: 80%;
+    margin-top: 2px;
+    display: flex;
+}
+
+.label, 
+.input {
+    display: flex;
+    font-size: 18px;
+    padding: 5px;
+    align-items: center;
+}
+
+.label {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.input {
+    flex: 3;
+    justify-content: space-between;
+}
+
+.submitBtn {
+    flex: 3;
+}
+
+.input select,
+.input input,
+.submitBtn input {
+    font-size: 18px;
+    display: inline-block;
+    padding: 3px 5px;
+    line-height:140%;
+}
+
+.input select,
+.input input[type=date] {
+    width: 40%;
+}
+
+.input textarea{
+    width: 70%;
+    font-size: 18px;
+}
+
+.input input[type=text] {
+    width: 40%;
+}
+
+

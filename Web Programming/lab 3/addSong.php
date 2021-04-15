@@ -64,11 +64,11 @@
         if (empty($_POST['tenBaiHat'])) {
             if (!empty($_POST['tieuDe'])) {
                 $tenBaiHat = $tieuDe;
-                $error = true;
             }
         }
-        $tenBaiHat = $_POST['tenBaiHat'];
-
+        else {
+            $tenBaiHat = $_POST['tenBaiHat'];
+        }
 
 
         if (empty($_POST['maTheLoai'])) {
