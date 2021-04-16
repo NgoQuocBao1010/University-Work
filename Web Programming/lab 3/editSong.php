@@ -22,6 +22,8 @@
     $genres = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
+
+
     $maBaiViet = $tieuDe = $maTacGia = $ngayViet = $tenBaiHat = $maTheLoai = $tomTat = "";
     if (isset($_POST['submit'])) {
         $maBaiViet = $_POST['maBaiViet'];
@@ -63,7 +65,8 @@
         function getReview(selectedName) {
             if (selectedName == "") {
                 return;
-            } else {
+            } 
+            else {
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
@@ -75,9 +78,43 @@
                         }
                     }
                 };
-                xmlhttp.open("GET","getReview.php?q=" + selectedName, true);
+                xmlhttp.open("GET", "getReview.php?q=" + selectedName, true);
                 xmlhttp.send();
             }
+        }
+
+        function addReviewer() {
+        	var newNameInput = document.getElementById('newReviewer');
+        	var newName = newNameInput.value; 
+        	var reviewerSelector = document.getElementById('reviewerSelector');
+        	var result = {};
+
+            if (newName == "") {
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        result = JSON.parse(this.responseText);
+                        console.log(result);
+                        var option = document.createElement("option");
+						option.text = newName;
+						option.value = result['newID'];
+						reviewerSelector.add(option);
+						reviewerSelector.value = option.value;
+						newNameInput.value = '';
+                    }
+                };
+                xmlhttp.open("GET", "addNewReviewer.php?q=" + newName, true);
+                xmlhttp.send();
+            }
+        }
+
+        function resetForm() {
+        	var reviewID = document.getElementById('reviewSelector').value;
+        	console.log('Chao');
+        	getReview(reviewID);
+        	console.log(reviewID);
         }
     </script>
 </head>
@@ -91,7 +128,7 @@
                 <label for="">Chọn bài viết</label>
             </div>
             <div class="input">
-                <select name="" id="" onchange="getReview(this.value)">
+                <select name="" id="reviewSelector" onchange="getReview(this.value)">
                     <?php foreach ($reviews as $review): ?>
                         <option value='<?php echo $review['maBaiViet']; ?>'><?php echo $review['tieuDe']; ?></option>
                     <?php endforeach; ?>
@@ -100,7 +137,7 @@
         </div>
         
         <br>
-        <form action="editSong.php" method="post">
+        <form action="editSong.php" method="POST">
             <div class="field">
                 <div class="label">
                     <label for="">Mã bài viết</label>
@@ -122,13 +159,13 @@
                     <label for="">Tác giả</label>
                 </div>
                 <div class="input">
-                    <select name="maTacGia">
+                    <select name="maTacGia" id="reviewerSelector">
                         <?php foreach ($reviewers as $reviewer): ?>
                             <option value='<?php echo $reviewer['maTacGia'] ?>'><?php echo $reviewer['tenTacGia']; ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <input type="text" name="">
-                    <input type="submit" name="" value="Them TG">
+                    <input type="text" id="newReviewer">
+                    <button type="button" onclick="return addReviewer()">Thêm TGiả</button>
                 </div>
             </div>
             <div class="field">
@@ -172,7 +209,7 @@
                 <div class="label"></div>
                 <div class="submitBtn">
                     <input type="submit" name="submit" value="Cập nhật">
-                    <input type="submit" value="Reset">
+                    <button type="button" onclick="return resetForm()">Reset</button>
                 </div>
                 
             </div>

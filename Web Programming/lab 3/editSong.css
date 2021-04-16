@@ -8,6 +8,12 @@ body {
     justify-content: center;
 }
 
+button {
+    font-size: 18px;
+    width: 15%;
+    height: 5vh;
+}
+
 h1 {
     margin: 20px 0;
 }
