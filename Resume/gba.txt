@@ -1,0 +1,129 @@
+Trường Đại Học Cần Thơ	Mẫu In D5050A0
+Bảng Ghi Điểm Thi Học Kỳ
+Họ Và Tên	Ngô Hồng Quốc Bảo     - Mã Số:   B1809677
+Ngày Sinh	10/10/2000
+Ngành	Công nghệ thông tin (chương trình chất lượng cao) (DI18V7F1)
+ 
+Học Kỳ 1 - Năm Học 18-19 (DI18V7F1)
+ 
+Mã HP	Tên Học Phần	Nhóm	TC	Thi	L2	T.Hợp	Q/Đổi	*
+XH023	Anh văn căn bản 1 (*)	 	4	-2.0		Miễn	M	*(BL)
+XH024	Anh văn căn bản 2 (*)	 	3	-2.0		Miễn	M	*(BL)
+XH025	Anh văn căn bản 3 (*)	 	3	-2.0		Miễn	M	*(BL)
+FL001H	Nghe và Nói 1	M04	3	9.1		9.1	A	*
+FL003H	Đọc hiểu 1	M04	2	8.0		8.0	B+	*
+FL005H	Viết 1	M04	2	9.0		9.0	A	*
+FL007H	Ngữ pháp ứng dụng	M04	3	8.3		8.3	B+	*
+FL008H	Ngữ âm thực hành	M04	2	9.0		9.0	A	*
+FL009H	Kỹ năng thuyết trình	M04	2	8.0		8.0	B+	*
+SHCVHT	Cố vấn học tập sinh hoạt lớp	557	0					 
+Tổng Số Tín Chỉ Đăng Ký	14	 	 
+Tổng Số Tín Chỉ Tích Lũy Học Kỳ	14	Điểm T.Bình chung học kỳ (hệ 4)	3.75
+Tổng Số Tín Chỉ Tích Lũy	24	Điểm T.Bình chung tích lũy (hệ 4)	0.00
+Điểm Rèn Luyện     70	Khá
+ 
+Học Kỳ 2 - Năm Học 18-19 (DI18V7F1)
+ 
+Mã HP	Tên Học Phần	Nhóm	TC	Thi	L2	T.Hợp	Q/Đổi	*
+CT051H	Vi - Tích phân	M01	4	10.0		10.0	A	*
+CT054H	Lập trình căn bản A	M01	4	9.9		9.9	A	*
+CT056H	Kỹ năng thuyết trình	M01	1	8.5		8.5	B+	*
+FL002H	Nghe và Nói 2	M02	2	9.0		9.0	A	*
+FL004H	Đọc hiểu 2	M02	2	9.3		9.3	A	*
+FL006H	Viết 2	M02	2	8.0		8.0	B+	*
+SHCVHT	Cố vấn học tập sinh hoạt lớp	G13	0					 
+TC003	Taekwondo 1 (*)	M04	1	6.5		6.5	C+	*
+TN033H	Tin học căn bản	M01	1	9.6		9.6	A	*
+ 
+Bảng Ghi Điểm Thi Học Kỳ
+Họ Và Tên	Ngô Hồng Quốc Bảo  - Mã Số:   B1809677
+ 	 	 	 	 	 	 	 	 
+TN034H	TT. Tin học căn bản	M01	2	9.2		9.2	A	*
+Tổng Số Tín Chỉ Đăng Ký	19	 	 
+Tổng Số Tín Chỉ Tích Lũy Học Kỳ	19	Điểm T.Bình chung học kỳ (hệ 4)	3.92
+Tổng Số Tín Chỉ Tích Lũy	43	Điểm T.Bình chung tích lũy (hệ 4)	3.96
+Điểm Rèn Luyện     84	Tốt
+ 
+Học Kỳ Hè - Năm Học 18-19 (DI18V7F1)
+ 
+Mã HP	Tên Học Phần	Nhóm	TC	Thi	L2	T.Hợp	Q/Đổi	*
+QP006	Giáo dục Quốc phòng và An ninh 1 (*)	G01	2	7.7		7.7	B	*
+QP007	Giáo dục Quốc phòng và An ninh 2 (*)	G01	2	8.0		8.0	B+	*
+QP008	Giáo dục Quốc phòng và An ninh 3 (*)	G01	3	7.2		7.2	B	*
+QP009	Giáo dục Quốc phòng và An ninh 4 (*)	G01	1	6.9		6.9	C+	*
+Tổng Số Tín Chỉ Đăng Ký	8	 	 
+Tổng Số Tín Chỉ Tích Lũy Học Kỳ	8	Điểm T.Bình chung học kỳ (hệ 4)	3.06
+Tổng Số Tín Chỉ Tích Lũy	51	Điểm T.Bình chung tích lũy (hệ 4)	3.96
+Điểm Rèn Luyện    	
+ 
+Học Kỳ 1 - Năm Học 19-20 (DI18V7F1)
+ 
+Mã HP	Tên Học Phần	Nhóm	TC	Thi	L2	T.Hợp	Q/Đổi	*
+CT052H	Đại số tuyến tính và hình học	M01	3	9.5		9.5	A	*
+CT053H	Xác suất thống kê	M01	3	8.2		8.2	B+	*
+CT057H	Kỹ năng làm việc nhóm	M01	1	8.5		8.5	B+	*
+CT102H	Cấu trúc dữ liệu	M01	4	8.0		8.0	B+	*
+CT103H	Nền tảng công nghệ thông tin	M01	3	6.5		6.5	C+	*
+CT111H	Kỹ năng học đại học	M01	3	9.0		9.0	A	*
+ML009	Những nguyên lý cơ bản của chủ nghĩa Mác-Lênin 1	02	2	6.0		6.0	C	*
+ 
+Bảng Ghi Điểm Thi Học Kỳ
+Họ Và Tên	Ngô Hồng Quốc Bảo  - Mã Số:   B1809677
+ 	 	 	 	 	 	 	 	 
+SHCVHT	Cố vấn học tập sinh hoạt lớp	076	0					 
+Tổng Số Tín Chỉ Đăng Ký	19	 	 
+Tổng Số Tín Chỉ Tích Lũy Học Kỳ	19	Điểm T.Bình chung học kỳ (hệ 4)	3.34
+Tổng Số Tín Chỉ Tích Lũy	70	Điểm T.Bình chung tích lũy (hệ 4)	3.58
+Điểm Rèn Luyện     77	Khá
+ 
+Học Kỳ 2 - Năm Học 19-20 (DI18V7F1)
+ 
+Mã HP	Tên Học Phần	Nhóm	TC	Thi	L2	T.Hợp	Q/Đổi	*
+CT104H	Nguyên lý hệ điều hành	01	3	8.2		8.2	B+	*
+CT107H	Nhập môn công nghệ phần mềm	01	3	7.6		7.6	B	*
+CT108H	Lập trình hướng đối tượng	01	3	8.1		8.1	B+	*
+CT109H	Phân tích và thiết kế thuật toán	01	3	9.0		9.0	A	*
+CT110H	Cơ sở dữ liệu	01	3	9.3		9.3	A	*
+ML010	Những nguyên lý cơ bản của chủ nghĩa Mác-Lênin 2	04	3	8.0		8.0	B+	*
+SHCVHT	Cố vấn học tập sinh hoạt lớp	075	0					 
+Tổng Số Tín Chỉ Đăng Ký	18	 	 
+Tổng Số Tín Chỉ Tích Lũy Học Kỳ	18	Điểm T.Bình chung học kỳ (hệ 4)	3.58
+Tổng Số Tín Chỉ Tích Lũy	88	Điểm T.Bình chung tích lũy (hệ 4)	3.58
+Điểm Rèn Luyện     88	Tốt
+ 
+Học Kỳ Hè - Năm Học 19-20 (DI18V7F1)
+ 
+Mã HP	Tên Học Phần	Nhóm	TC	Thi	L2	T.Hợp	Q/Đổi	*
+FL100H	Thi đánh giá năng lực tiếng Anh	04	2	7.5		7.5	B	 
+KL001	Pháp luật đại cương	02	2	6.3		6.3	C	*
+ML006	Tư tưởng Hồ Chí Minh	08	2	8.6		8.6	B+	*
+ 
+Bảng Ghi Điểm Thi Học Kỳ
+Họ Và Tên	Ngô Hồng Quốc Bảo  - Mã Số:   B1809677
+ 	 	 	 	 	 	 	 	 
+TC004	Taekwondo 2 (*)	10	1	8.0		8.0	B+	*
+Tổng Số Tín Chỉ Đăng Ký	7	 	 
+Tổng Số Tín Chỉ Tích Lũy Học Kỳ	5	Điểm T.Bình chung học kỳ (hệ 4)	2.83
+Tổng Số Tín Chỉ Tích Lũy	93	Điểm T.Bình chung tích lũy (hệ 4)	3.52
+Điểm Rèn Luyện    	
+ 
+Học Kỳ 1 - Năm Học 20-21 (DI18V7F1)
+ 
+Mã HP	Tên Học Phần	Nhóm	TC	Thi	L2	T.Hợp	Q/Đổi	*
+CT101H	Toán cho khoa học máy tính	01	4	9.5		9.5	A	*
+CT106H	Mạng máy tính	01	3	9.2		9.2	A	*
+CT206H	Nguyên lý hệ quản trị cơ sở dữ liệu	01	3	8.2		8.2	B+	*
+CT208H	Hệ quản trị cơ sở dữ liệu Oracle	01	3	8.5		8.5	B+	*
+ML011	Đường lối cách mạng của Đảng cộng sản Việt Nam	07	3	5.3		5.3	D+	*
+SHCVHT	Cố vấn học tập sinh hoạt lớp	087	0					 
+XH014	Văn bản và lưu trữ học đại cương	02	2	7.1		7.1	B	*
+Tổng Số Tín Chỉ Đăng Ký	18	 	 
+Tổng Số Tín Chỉ Tích Lũy Học Kỳ	18	Điểm T.Bình chung học kỳ (hệ 4)	3.31
+Tổng Số Tín Chỉ Tích Lũy	111	Điểm T.Bình chung tích lũy (hệ 4)	3.46
+Điểm Rèn Luyện     73	Khá
+Ghi chú	+ Học phần có dấu * là học phần thuộc chương trình đào tạo.
+ 	+ Từ học kỳ 1 năm 2007-2008, Trường Đại học Cần Thơ sử dụng thang điểm 4.
+ 	+ Điểm trung bình được phân loại như sau:
+ 	Loại Xuất sắc	từ 3.6 đến 4.00	Loại Khá	từ 2.5 đến 3.19
+ 	Loại Giỏi	từ 3.2 đến 3.59	Loại Trung bình	từ 2.0 đến 2.49
+ 	 	Cần Thơ, Ngày 28 Tháng 04 Năm 2021
